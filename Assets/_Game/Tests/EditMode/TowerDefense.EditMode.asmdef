@@ -1,0 +1,13 @@
+{
+  "name": "TowerDefense.EditMode",
+  "rootNamespace": "TowerDefense.Game.Tests.EditMode",
+  "references": [
+    "TowerDefense.Game"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

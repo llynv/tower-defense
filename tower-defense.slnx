@@ -1,4 +1,6 @@
 ﻿<Solution>
   <Project Path="MCPForUnity.Editor.csproj" />
   <Project Path="MCPForUnity.Runtime.csproj" />
+  <Project Path="TowerDefense.Game.csproj" />
+  <Project Path="TowerDefense.EditMode.csproj" />
 </Solution>

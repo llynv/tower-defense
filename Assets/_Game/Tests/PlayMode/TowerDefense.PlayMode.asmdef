@@ -1,0 +1,10 @@
+{
+  "name": "TowerDefense.PlayMode",
+  "rootNamespace": "TowerDefense.Game.Tests.PlayMode",
+  "references": [
+    "TowerDefense.Game"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
