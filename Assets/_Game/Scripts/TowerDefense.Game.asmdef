@@ -1,4 +1,8 @@
 {
   "name": "TowerDefense.Game",
-  "rootNamespace": "TowerDefense.Game"
+  "rootNamespace": "TowerDefense.Game",
+  "references": [
+    "Unity.TextMeshPro",
+    "Unity.ugui"
+  ]
 }
