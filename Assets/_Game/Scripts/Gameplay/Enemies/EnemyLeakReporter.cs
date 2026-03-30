@@ -22,6 +22,10 @@ namespace TowerDefense.Game.Gameplay.Enemies
             if (reported || !mover.HasReachedEnd)
                 return;
 
+            EnemyHealth health = GetComponent<EnemyHealth>();
+            if (health != null && health.IsDead)
+                return;
+
             reported = true;
 
             if (enemyRuntimeSet != null)
