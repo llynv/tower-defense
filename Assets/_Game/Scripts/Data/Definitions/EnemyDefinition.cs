@@ -14,8 +14,11 @@ namespace TowerDefense.Game.Data.Definitions
         [Min(0)]
         [SerializeField] private int goldReward;
 
+        [SerializeField] private GameObject prefab;
+
         public float MoveSpeed => moveSpeed;
         public int MaxHealth => maxHealth;
         public int GoldReward => goldReward;
+        public GameObject Prefab => prefab;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using TowerDefense.Game.Data.Definitions;
 using TowerDefense.Game.Data.Events;
 using TowerDefense.Game.Data.Variables;
 
@@ -6,9 +7,8 @@ namespace TowerDefense.Game.Core
 {
     public sealed class MatchStateController : MonoBehaviour
     {
-        [Header("Resources")]
-        [SerializeField] private int startingGold = 20;
-        [SerializeField] private int startingLives = 10;
+        [Header("Level")]
+        [SerializeField] private LevelDefinition levelDefinition;
 
         [Header("Variables")]
         [SerializeField] private IntVariable goldVariable;
@@ -43,7 +43,9 @@ namespace TowerDefense.Game.Core
         private void Awake()
         {
             director = new LevelDirectorLogic();
-            resources = new PlayerResourcesLogic(startingGold, startingLives);
+            resources = new PlayerResourcesLogic(
+                levelDefinition != null ? levelDefinition.StartingGold : 20,
+                levelDefinition != null ? levelDefinition.StartingLives : 10);
             SyncVariables();
         }
 
