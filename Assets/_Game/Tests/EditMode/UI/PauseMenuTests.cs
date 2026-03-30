@@ -76,11 +76,11 @@ namespace TowerDefense.Game.Tests.EditMode.UI
         }
 
         [Test]
-        public void TimeScaleToggleLogic_IsFastForwardAvailable_ReturnsFalse()
+        public void TimeScaleToggleLogic_IsFastForwardAvailable_ReturnsTrue()
         {
             var logic = new TimeScaleToggleLogic();
 
-            Assert.That(logic.IsFastForwardAvailable(), Is.False);
+            Assert.That(logic.IsFastForwardAvailable(), Is.True);
         }
     }
 }
