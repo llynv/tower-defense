@@ -2,6 +2,7 @@
   "name": "TowerDefense.Game",
   "rootNamespace": "TowerDefense.Game",
   "references": [
+    "Unity.InputSystem",
     "Unity.TextMeshPro",
     "Unity.ugui"
   ]

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622395053693945001}
   - component: {fileID: 1257229343771027458}
+  - component: {fileID: 2958070727007711249}
   m_Layer: 0
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -91,3 +92,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2958070727007711249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533029122576831924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6956cae908f49e0969f5b3f905b860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Gameplay.Towers.TowerBehaviour
+  definition: {fileID: 11400000, guid: 321c14e7ec1d140e5b42476774734e14, type: 2}
+  enemyRuntimeSet: {fileID: 11400000, guid: 2135a8dbecb1d4735becf27ec36e199f, type: 2}
+  enemyKilledRewardChannel: {fileID: 11400000, guid: 527b3f33cb378433fb74605b4e868df1, type: 2}
+  projectilePrefab: {fileID: 8918676772018364867, guid: c43fdbe4cdbb54ba78d301655dbdb067, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TowerDefense.Game.Data.Events;
 
@@ -31,7 +32,7 @@ namespace TowerDefense.Game.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
                 OnPauseRequested();
         }
 

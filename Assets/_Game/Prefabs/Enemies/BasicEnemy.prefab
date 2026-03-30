@@ -130,5 +130,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d413feba9c7d48908a13e713465ae42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Gameplay.Enemies.EnemyLeakReporter
-  enemyLeakedChannel: {fileID: 0}
-  enemyRuntimeSet: {fileID: 0}
+  enemyLeakedChannel: {fileID: 11400000, guid: 480980f68ca044ecf8e0bd74e7bb9e65, type: 2}
+  enemyRuntimeSet: {fileID: 11400000, guid: 2135a8dbecb1d4735becf27ec36e199f, type: 2}

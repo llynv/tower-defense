@@ -21,14 +21,29 @@ namespace TowerDefense.Game.UI
 
             if (quitButton != null)
                 quitButton.gameObject.SetActive(logic.ShouldShowQuit());
+
+            if (playButton != null)
+                playButton.onClick.AddListener(OnPlayClicked);
+
+            if (quitButton != null)
+                quitButton.onClick.AddListener(OnQuitClicked);
         }
 
-        public void OnPlayClicked()
+        private void OnDestroy()
+        {
+            if (playButton != null)
+                playButton.onClick.RemoveListener(OnPlayClicked);
+
+            if (quitButton != null)
+                quitButton.onClick.RemoveListener(OnQuitClicked);
+        }
+
+        private void OnPlayClicked()
         {
             SceneManager.LoadScene(logic.GameSceneName);
         }
 
-        public void OnQuitClicked()
+        private void OnQuitClicked()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
