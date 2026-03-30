@@ -13,6 +13,12 @@ namespace TowerDefense.Game.Presentation.Sorting
             targetRenderer = GetComponent<SpriteRenderer>();
         }
 
+        private void Awake()
+        {
+            if (targetRenderer == null)
+                targetRenderer = GetComponent<SpriteRenderer>();
+        }
+
         private void LateUpdate()
         {
             targetRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * multiplier);

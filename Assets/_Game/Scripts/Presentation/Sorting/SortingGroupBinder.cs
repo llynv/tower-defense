@@ -16,6 +16,8 @@ namespace TowerDefense.Game.Presentation.Sorting
 
         private void Awake()
         {
+            if (sortingGroup == null)
+                sortingGroup = GetComponent<SortingGroup>();
             sortingGroup.sortingLayerName = sortingLayerName;
         }
     }
