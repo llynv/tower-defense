@@ -7,11 +7,6 @@ namespace TowerDefense.Game.Gameplay.Building
 {
     public sealed class TowerPlacer : MonoBehaviour
     {
-        [Header("Tower")]
-        [SerializeField] private TowerDefinition towerDefinition;
-        [SerializeField] private GameObject towerPrefab;
-
-        [Header("Dependencies")]
         [SerializeField] private MatchStateController matchStateController;
 
         private TowerPlacementLogic placementLogic;
@@ -21,19 +16,19 @@ namespace TowerDefense.Game.Gameplay.Building
             placementLogic = new TowerPlacementLogic(matchStateController.Resources);
         }
 
-        public bool TryPlaceAt(BuildNode buildNode)
+        public bool TryPlaceAt(BuildNode buildNode, TowerDefinition definition, GameObject prefab)
         {
-            if (placementLogic == null || towerDefinition == null || towerPrefab == null)
+            if (placementLogic == null || definition == null || prefab == null)
                 return false;
 
             var occupancy = buildNode.Occupancy;
             if (occupancy == null)
                 return false;
 
-            if (!placementLogic.TryPlace(occupancy, towerDefinition.GoldCost))
+            if (!placementLogic.TryPlace(occupancy, definition.GoldCost))
                 return false;
 
-            Instantiate(towerPrefab, buildNode.PlacementPosition, Quaternion.identity);
+            Instantiate(prefab, buildNode.PlacementPosition, Quaternion.identity);
             return true;
         }
     }
