@@ -13,6 +13,8 @@ namespace TowerDefense.Game.Core
         [Header("Variables")]
         [SerializeField] private IntVariable goldVariable;
         [SerializeField] private IntVariable livesVariable;
+        [SerializeField] private IntVariable currentWaveVariable;
+        [SerializeField] private IntVariable totalWaveVariable;
 
         [Header("Events In")]
         [SerializeField] private VoidEventChannel startWaveRequested;
@@ -21,6 +23,7 @@ namespace TowerDefense.Game.Core
 
         [Header("Events Out")]
         [SerializeField] private VoidEventChannel waveStartedChannel;
+        [SerializeField] private VoidEventChannel waveCompletedChannel;
         [SerializeField] private VoidEventChannel victoryChannel;
         [SerializeField] private VoidEventChannel defeatChannel;
 
@@ -29,6 +32,13 @@ namespace TowerDefense.Game.Core
 
         public MatchState CurrentState => director?.CurrentState ?? MatchState.BuildPhase;
         public PlayerResourcesLogic Resources => resources;
+
+        public void SetTotalWaves(int total)
+        {
+            director.SetTotalWaves(total);
+            if (totalWaveVariable != null)
+                totalWaveVariable.SetValue(total);
+        }
 
         private void Awake()
         {
@@ -55,6 +65,9 @@ namespace TowerDefense.Game.Core
         {
             director.CompleteWave(hasMoreWaves);
 
+            if (waveCompletedChannel != null)
+                waveCompletedChannel.RaiseEvent();
+
             if (director.CurrentState == MatchState.Victory && victoryChannel != null)
                 victoryChannel.RaiseEvent();
         }
@@ -63,8 +76,13 @@ namespace TowerDefense.Game.Core
         {
             director.StartWave();
 
-            if (director.CurrentState == MatchState.WaveRunning && waveStartedChannel != null)
-                waveStartedChannel.RaiseEvent();
+            if (director.CurrentState == MatchState.WaveRunning)
+            {
+                SyncWaveVariables();
+
+                if (waveStartedChannel != null)
+                    waveStartedChannel.RaiseEvent();
+            }
         }
 
         private void OnEnemyLeaked(int count)
@@ -93,6 +111,14 @@ namespace TowerDefense.Game.Core
         {
             if (goldVariable != null) goldVariable.SetValue(resources.Gold);
             if (livesVariable != null) livesVariable.SetValue(resources.Lives);
+        }
+
+        private void SyncWaveVariables()
+        {
+            if (currentWaveVariable != null)
+                currentWaveVariable.SetValue(director.CurrentWaveIndex);
+            if (totalWaveVariable != null)
+                totalWaveVariable.SetValue(director.TotalWaveCount);
         }
     }
 }

@@ -6,9 +6,11 @@ namespace TowerDefense.Game.Gameplay.Enemies
     {
         public EnemyHealthLogic(int maxHealth)
         {
+            MaxHealth = maxHealth;
             CurrentHealth = maxHealth;
         }
 
+        public int MaxHealth { get; }
         public int CurrentHealth { get; private set; }
 
         public bool IsDead => CurrentHealth <= 0;

@@ -10,10 +10,12 @@ namespace TowerDefense.Game.Gameplay.Enemies
         private int goldReward;
 
         public int CurrentHealth => logic?.CurrentHealth ?? 0;
+        public int MaxHealth => logic?.MaxHealth ?? 0;
         public bool IsDead => logic?.IsDead ?? false;
         public int GoldReward => goldReward;
 
         public event Action Died;
+        public event Action<int, int> Damaged;
 
         public void Initialize(EnemyDefinition definition)
         {
@@ -27,6 +29,7 @@ namespace TowerDefense.Game.Gameplay.Enemies
                 return;
 
             logic.TakeDamage(amount);
+            Damaged?.Invoke(logic.CurrentHealth, logic.MaxHealth);
 
             if (logic.IsDead)
                 Died?.Invoke();

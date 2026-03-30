@@ -9,10 +9,25 @@ namespace TowerDefense.Game.UI
         [SerializeField] private TMP_Text textComponent;
         [SerializeField] private IntVariable livesVariable;
 
-        private void Update()
+        private void OnEnable()
         {
-            if (textComponent != null && livesVariable != null)
-                textComponent.text = livesVariable.Value.ToString();
+            if (livesVariable != null)
+            {
+                livesVariable.OnValueChanged += UpdateText;
+                UpdateText(livesVariable.Value);
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (livesVariable != null)
+                livesVariable.OnValueChanged -= UpdateText;
+        }
+
+        private void UpdateText(int value)
+        {
+            if (textComponent != null)
+                textComponent.text = value.ToString();
         }
     }
 }

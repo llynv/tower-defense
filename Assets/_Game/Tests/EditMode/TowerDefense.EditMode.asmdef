@@ -2,7 +2,8 @@
   "name": "TowerDefense.EditMode",
   "rootNamespace": "TowerDefense.Game.Tests.EditMode",
   "references": [
-    "TowerDefense.Game"
+    "TowerDefense.Game",
+    "Unity.TextMeshPro"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"
