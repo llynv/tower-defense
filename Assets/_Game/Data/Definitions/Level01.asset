@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd51efade6f642ba819764f39412799, type: 3}
+  m_Name: Level01
+  m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Data.Definitions.LevelDefinition
+  waves:
+  - {fileID: 11400000, guid: bd17d6a685e09416ebf535d0654a864e, type: 2}
+  - {fileID: 11400000, guid: 73d7b08bf8274434b987171f5f705898, type: 2}
+  - {fileID: 11400000, guid: f45a97f6ce334649a857ffc4936436b0, type: 2}
+  - {fileID: 11400000, guid: 621e9cc95a8942c5a2d1ad1462437061, type: 2}
+  - {fileID: 11400000, guid: a6982f5e01724440933e798888cc4917, type: 2}
+  startingGold: 20
+  startingLives: 10

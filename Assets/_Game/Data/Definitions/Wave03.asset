@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96740ec6d0ee34e8a8c6522d81da3032, type: 3}
-  m_Name: Wave01
+  m_Name: Wave03
   m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Data.Definitions.WaveDefinition
   enemy: {fileID: 0}
   enemyCount: 0
-  spawnIntervalSeconds: 1.5
+  spawnIntervalSeconds: 1
   entries:
   - enemy: {fileID: 11400000, guid: a9bf0ab80fcd34579ba6744a7be6c931, type: 2}
+    count: 2
+  - enemy: {fileID: 11400000, guid: 0c490cf0b25e74cb2b1bfee808d8d094, type: 2}
     count: 3
