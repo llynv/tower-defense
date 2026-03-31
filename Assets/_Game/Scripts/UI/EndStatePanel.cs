@@ -27,6 +27,9 @@ namespace TowerDefense.Game.UI
         private void Awake()
         {
             logic = new EndStatePanelLogic();
+            SetButtonLabel(retryButton, "Retry");
+            SetButtonLabel(mainMenuButton, "Main Menu");
+            SetButtonLabel(nextLevelButton, "Next Level");
 
             if (panel != null)
                 panel.SetActive(false);
@@ -36,12 +39,22 @@ namespace TowerDefense.Game.UI
         {
             if (victoryChannel != null) victoryChannel.RegisterListener(OnVictory);
             if (defeatChannel != null) defeatChannel.RegisterListener(OnDefeat);
+
+            if (retryButton != null)
+                retryButton.onClick.AddListener(OnRetryClicked);
+            if (mainMenuButton != null)
+                mainMenuButton.onClick.AddListener(OnMainMenuClicked);
         }
 
         private void OnDisable()
         {
             if (victoryChannel != null) victoryChannel.UnregisterListener(OnVictory);
             if (defeatChannel != null) defeatChannel.UnregisterListener(OnDefeat);
+
+            if (retryButton != null)
+                retryButton.onClick.RemoveListener(OnRetryClicked);
+            if (mainMenuButton != null)
+                mainMenuButton.onClick.RemoveListener(OnMainMenuClicked);
         }
 
         private void OnVictory()
@@ -76,14 +89,22 @@ namespace TowerDefense.Game.UI
                 panel.SetActive(true);
         }
 
-        public void OnRetryClicked()
+        private void OnRetryClicked()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        public void OnMainMenuClicked()
+        private void OnMainMenuClicked()
         {
             SceneManager.LoadScene("MainMenu");
+        }
+
+        private static void SetButtonLabel(Button button, string text)
+        {
+            if (button == null) return;
+            var label = button.GetComponent<TMP_Text>();
+            if (label != null)
+                label.text = text;
         }
     }
 }

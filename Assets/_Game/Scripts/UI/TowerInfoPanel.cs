@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using TowerDefense.Game.Data.Definitions;
+using TowerDefense.Game.Data.Events;
 
 namespace TowerDefense.Game.UI
 {
@@ -18,6 +19,10 @@ namespace TowerDefense.Game.UI
         [SerializeField] private Button sellButton;
         [SerializeField] private TMP_Text sellCostText;
 
+        [Header("Events")]
+        [SerializeField] private VoidEventChannel upgradeRequestedChannel;
+        [SerializeField] private VoidEventChannel sellRequestedChannel;
+
         [Header("Panel")]
         [SerializeField] private GameObject panelRoot;
 
@@ -28,6 +33,22 @@ namespace TowerDefense.Game.UI
         {
             logic = new TowerInfoPanelLogic();
             Hide();
+        }
+
+        private void OnEnable()
+        {
+            if (upgradeButton != null)
+                upgradeButton.onClick.AddListener(OnUpgradeClicked);
+            if (sellButton != null)
+                sellButton.onClick.AddListener(OnSellClicked);
+        }
+
+        private void OnDisable()
+        {
+            if (upgradeButton != null)
+                upgradeButton.onClick.RemoveListener(OnUpgradeClicked);
+            if (sellButton != null)
+                sellButton.onClick.RemoveListener(OnSellClicked);
         }
 
         public void Show(TowerDefinition definition)
@@ -80,6 +101,18 @@ namespace TowerDefense.Game.UI
                 int sellCost = logic.ComputeSellCost(currentDefinition);
                 sellCostText.text = sellCost.ToString();
             }
+        }
+
+        private void OnUpgradeClicked()
+        {
+            if (upgradeRequestedChannel != null)
+                upgradeRequestedChannel.RaiseEvent();
+        }
+
+        private void OnSellClicked()
+        {
+            if (sellRequestedChannel != null)
+                sellRequestedChannel.RaiseEvent();
         }
     }
 }

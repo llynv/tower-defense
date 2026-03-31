@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using TowerDefense.Game.Data.Events;
 
 namespace TowerDefense.Game.UI
@@ -8,6 +9,13 @@ namespace TowerDefense.Game.UI
     {
         [SerializeField] private Button button;
         [SerializeField] private VoidEventChannel startWaveRequestedChannel;
+
+        private void Awake()
+        {
+            var label = GetComponent<TMP_Text>();
+            if (label != null)
+                label.text = "Start Wave";
+        }
 
         private void OnEnable()
         {

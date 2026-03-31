@@ -1,13 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TowerDefense.Game.Data.Events;
 
 namespace TowerDefense.Game.UI
 {
     public sealed class PauseButton : MonoBehaviour
     {
+        [SerializeField] private Button button;
         [SerializeField] private VoidEventChannel pauseRequestedChannel;
 
-        public void OnClick()
+        private void OnEnable()
+        {
+            if (button != null)
+                button.onClick.AddListener(OnButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            if (button != null)
+                button.onClick.RemoveListener(OnButtonClicked);
+        }
+
+        private void OnButtonClicked()
         {
             if (pauseRequestedChannel != null)
                 pauseRequestedChannel.RaiseEvent();
