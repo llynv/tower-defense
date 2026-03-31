@@ -2162,6 +2162,8 @@ MonoBehaviour:
   buildOptions:
   - definition: {fileID: 11400000, guid: 321c14e7ec1d140e5b42476774734e14, type: 2}
     towerPrefab: {fileID: 4533029122576831924, guid: 0a55b3b1ca3ce4e369130dd1eb463524, type: 3}
+  - definition: {fileID: 11400000, guid: 0c3d1be831953442a9d2bd615a7612d1, type: 2}
+    towerPrefab: {fileID: 4533029122576831924, guid: de1f70ff9a9ac47f593d42b3037a6b46, type: 3}
   selectionState: {fileID: 11400000, guid: 0e28033b1a28e4178a8ccaedef6c0396, type: 2}
   goldVariable: {fileID: 11400000, guid: 5693638bde53c4bf69096acac61d6050, type: 2}
   buttonContainer: {fileID: 1311644651}
@@ -12648,6 +12650,7 @@ Transform:
   - {fileID: 1178923031}
   - {fileID: 1439765904}
   - {fileID: 1885473694}
+  - {fileID: 2000000002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178923030
@@ -12694,8 +12697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6d4cca226e94877ac29b22cd958bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Core.MatchStateController
-  startingGold: 20
-  startingLives: 10
+  levelDefinition: {fileID: 11400000, guid: 96c2495a989948b388694a89b6721410, type: 2}
   goldVariable: {fileID: 11400000, guid: 5693638bde53c4bf69096acac61d6050, type: 2}
   livesVariable: {fileID: 11400000, guid: 95174adc2f44f4ce7aba3bb020bcf6b5, type: 2}
   currentWaveVariable: {fileID: 11400000, guid: ad7bd4b082d014e1a945b49b4ca21566, type: 2}
@@ -15223,8 +15225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22157c2d40b5e43069eba029fde9d6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Core.WaveSpawner
-  waveDefinition: {fileID: 11400000, guid: bd17d6a685e09416ebf535d0654a864e, type: 2}
-  enemyPrefab: {fileID: 6608080420426383971, guid: a9ecd5a7b4a2c4fb19d701d9e767a78e, type: 3}
+  levelDefinition: {fileID: 11400000, guid: 96c2495a989948b388694a89b6721410, type: 2}
   lanePathAuthoring: {fileID: 1453315751}
   spawnPoint: {fileID: 357938582}
   enemyRuntimeSet: {fileID: 11400000, guid: 2135a8dbecb1d4735becf27ec36e199f, type: 2}
@@ -16679,8 +16680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1893e6fd3384856a028419464c8ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Gameplay.Building.TowerPlacer
-  towerDefinition: {fileID: 11400000, guid: 321c14e7ec1d140e5b42476774734e14, type: 2}
-  towerPrefab: {fileID: 4533029122576831924, guid: 0a55b3b1ca3ce4e369130dd1eb463524, type: 3}
   matchStateController: {fileID: 1178923032}
 --- !u!1 &1891246684
 GameObject:
@@ -17378,6 +17377,64 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b84ba0c17b1c4818adfbbaa2f6918c0, type: 3}
+--- !u!1 &2000000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000000002}
+  - component: {fileID: 2000000003}
+  m_Layer: 0
+  m_Name: BuildNodeClickHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2000000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1138986078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d33de8c3c2b24acea42735559dc6306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TowerDefense.Game::TowerDefense.Game.Gameplay.Building.BuildNodeClickHandler
+  selectionState: {fileID: 11400000, guid: 0e28033b1a28e4178a8ccaedef6c0396, type: 2}
+  matchStateController: {fileID: 1178923032}
+  towerPlacer: {fileID: 1885473695}
+  buildNodes:
+  - {fileID: 277504114}
+  - {fileID: 884098567}
+  - {fileID: 766400725}
+  - {fileID: 1228316872}
+  - {fileID: 1924846814}
+  - {fileID: 263374570}
+  - {fileID: 1310022953}
+  - {fileID: 1633377681}
+  gameCamera: {fileID: 588225509}
+  snapDistance: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
