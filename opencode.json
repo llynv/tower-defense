@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "ai-game-developer": {
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer TU9l6Yr45p8Gv7ryK_2HtrqPcXuU4fhnri-bucMuuQU"
+      },
+      "type": "remote",
+      "url": "https://ai-game.dev/mcp"
+    }
+  }
+}
